@@ -70,6 +70,52 @@ twoSum([9, 2, 11, 5, 8], 7);
 
 ---
 
+### Problem 9 - Palindrome Number
+
+#### Question: </br>
+
+<details>
+  <summary>Click to expand</summary>
+<br/>
+
+> Given an integer x, return true if x is palindrome integer.</br></br>An integer is a palindrome when it reads the same backward as forward.</br></br>For example, 121 is a palindrome while 123 is not.
+
+</details>
+
+#### My Solution: </br>
+
+<details>
+  <summary>Click to expand</summary>
+  
+```javascript
+var isPalindrome = function(x) {
+    
+    if (x < 0) {
+        return false;
+    }
+    
+    var inputStr = x.toString();
+    
+    function inner(inputStr) {
+        if (inputStr.length <= 1) {
+            return true;
+        }
+        
+        if (inputStr[0] === inputStr[inputStr.length - 1]) {
+            return inner(inputStr.slice(1, inputStr.length - 1));
+        }
+        
+        return false;
+    }
+    
+    return inner(inputStr);
+};
+
+````
+
+</details>
+
+---
 ### Problem 141 - Linked List Cycle
 
 #### Question: </br>
@@ -86,38 +132,41 @@ twoSum([9, 2, 11, 5, 8], 7);
 
 <details>
   <summary>Click to expand</summary>
-  
+
 ```javascript
 var hasCycle = function(head) {
     if (!head) {
         return false;
     }
-    
+
     var slow = head;
     var fast = head.next;
-    
+
     while (fast !== null) {
         if (fast.next !== null) {
-            fast = fast.next;    
+            fast = fast.next;
         } else {
             return false;
         }
-        
+
         if (fast === slow) {
             return true;
         }
         slow = slow.next;
         fast = fast.next;
     }
-    
+
     return false;
 };
 
-```
+````
 
 </details>
 
 ---
 
 [Back To The Top](#leetcode-solutions)
+
+```
+
 ```
