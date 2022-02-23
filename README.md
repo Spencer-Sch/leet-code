@@ -202,6 +202,43 @@ var romanToInt = function (s) {
 </details>
 
 ---
+### Problem 14 - Longest Common Prefix
+
+#### Question: </br>
+
+<details>
+  <summary>Click to expand</summary>
+<br/>
+
+Write a function to find the longest common prefix string amongst an array of strings.</br>
+
+If there is no common prefix, return an empty string "".</br>
+
+</details>
+
+#### My Solution: </br>
+
+<details>
+  <summary>Click to expand</summary>
+
+```javascript
+var longestCommonPrefix = function(strs) {
+    if (strs.length === 1 || strs[0] === '') {
+        return strs[0];
+    }
+    let curPrefix = strs[0];
+    for (let i = 1; i < strs.length; i++) {
+        while (strs[i].indexOf(curPrefix) !== 0) {
+            curPrefix = curPrefix.slice(0, curPrefix.length - 1);
+        }
+    }
+    return curPrefix;
+};
+```
+
+</details>
+
+---
 
 ### Problem 141 - Linked List Cycle
 
